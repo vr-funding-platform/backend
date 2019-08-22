@@ -6,16 +6,38 @@ exports.up = function(knex, Promise) {
       .string('username', 128)
       .notNullable()
       .unique();
+
     users
       .string('password', 128)
       .notNullable();
     
     users
-      .string('name', 255)
-      .notNullable();
+      .string('name', 255);
+
     users
-      .text('about', 'longtext')
+      .text('about', 'longtext');
+
+    users
+      .string('email', 255);
+
+    users
+      .string('pfp');  
+
+    users
+      .string('role', 128)
       .notNullable();
+
+    users
+      .integer('team_id')
+      .references("id")
+      .inTable("teams")
+      .onDelete("CASCADE")
+      .onUpdate("CASCADE");
+
+    users
+      .datetime('created_at');
+    
+
   }
  )};
  exports.down = function(knex, Promise) {
