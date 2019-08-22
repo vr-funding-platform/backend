@@ -5,7 +5,7 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
-      filename: './data/virtual-reality.db3'
+      filename: './vrfund.db3'
     },
     useNullAsDefault: true,
   },  
@@ -15,34 +15,34 @@ module.exports = {
     }
   },
   migrations: {
-    directory: './data/migrations',
+    directory: './migrations',
   },
   seeds: {
-    directory: './data/seeds'
+    directory: './seeds'
   },
 
   production: {
     client: 'pg',
     connection: process.env.DATABASE_URL,
     migrations: {
-      directory: './data/migrations',
+      directory: './migrations',
     },
     seeds: {
-      directory: './data/seeds',
+      directory: './seeds',
     }
   },
 
   testing: {
     client: 'sqlite3',
     connection: {
-      filename: './data/test.db3',
+      filename: './test.db3',
     },
     useNullAsDefault: true,
     migrations: {
-      directory: './data/migrations',
+      directory: './migrations',
     },
     seeds: {
-      directory: './data/seeds'
+      directory: './seeds'
     }
   }
 };

@@ -4,7 +4,7 @@ const router = express.Router();
 
 const restricted = require('../helpers/auth/restricted.js');
 
-const Projects = require('../data/models/projects.js');
+const Projects = require('../models/projects.js.js');
 
 router.post('/', restricted, (req, res) => {
   let project = req.body;
