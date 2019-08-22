@@ -4,15 +4,31 @@ exports.up = function(knex, Promise) {
     projects.increments();
     projects
       .string('projectName', 255)
-      .notNullable();  
-    projects
-      .string('projectType', 255)
       .notNullable();
+
     projects
-      .text('description', 'longtext')
+      .string('projectType', 255);
+
+    projects
+      .text('description')
       .notNullable();
+
     projects
-      .decimal('fundingAmount', 14, 2);
+      .decimal('fundingAmount');
+
+    projects
+      .decimal('fundingGoal');
+
+    projects
+      .string('donors');
+
+    projects
+      .boolean('funded')
+      .defaultTo(false);
+
+    projects
+      .string('img');
+
     projects
       .integer('user_id')
       .unsigned()
@@ -20,6 +36,7 @@ exports.up = function(knex, Promise) {
       .inTable('users')
       .onDelete('CASCADE')
       .onUpdate('CASCADE')
+
   })
  };
  exports.down = function(knex, Promise) {
