@@ -11,22 +11,12 @@ exports.seed = function(knex, Promise) {
           id: 1, 
           username: 'admin',
           password: bcrypt.hashSync('password', 10),
-          name: 'Leonel, Gabriel, and Mateo',
-          about: 'We are a team of drone hobbyists.',
-        },
-        {
-          id: 2, 
-          username: 'admin2',
-          password: bcrypt.hashSync('password', 10),
-          name: 'Jayla',
-          about: 'I created a small 3D printing business.',
-        },
-        {
-          id: 3, 
-          username: 'admin3',
-          password: bcrypt.hashSync('password', 10),
-          name: 'Aaliyah and Trinity',
-          about: 'We are working to create drought resistance crops.',
+          name: 'Indie',
+          about: 'The admin account',
+          email:'waves@example.com',
+          pfp:'https://proxy.duckduckgo.com/iu/?u=http%3A%2F%2F1.bp.blogspot.com%2F-0PG98eTQglo%2FT2lVBgpSkHI%2FAAAAAAAAAAk%2Fa-bj-kBNpX8%2Fs1600%2Fnetwork%2Badministrator.jpg&f=1',
+          role:'creator',
+          team_id: '1'
         },
        
       ]);
