@@ -18,7 +18,7 @@ server.use('/projects', projectsRouter);
 
 server.get('/', (req,res) => {
   try {
-  res.send("Oh hey there! I'm the server!");
+  res.send("Server Up");
   } catch(error) {
     res.status(500).json(error.response);
   }
