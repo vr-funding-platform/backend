@@ -6,7 +6,7 @@ const restricted = require('../helpers/auth/restricted.js');
 
 const Projects = require('../models/projects.js');
 
-router.post('/', restricted, (req, res) => {
+router.post('/',  (req, res) => {
   let project = req.body;
   const { projectName, projectType, description, fundingAmount } = req.body;
   if (!projectName || !projectType || !description || !fundingAmount) {
@@ -42,7 +42,7 @@ router.get('/:id', (req, res) => {
       res.status(500).send(error));
 });
 
-router.put('/:id', restricted, (req, res) => {
+router.put('/:id',  (req, res) => {
   let project = req.body;
   let id = req.params.id;
   Projects.update(project, id)
@@ -57,7 +57,7 @@ router.put('/:id', restricted, (req, res) => {
       res.status(500).send(error));
 });
 
-router.delete('/:id', restricted, (req, res) => {
+router.delete('/:id',  (req, res) => {
   Projects.remove(req.params.id)
     .then(deleted => {
       if (deleted) {

@@ -6,7 +6,7 @@ const restricted = require('../helpers/auth/restricted.js');
 
 const Users = require('../models/users.js');
 
-router.get('/', restricted, (req, res) => {
+router.get('/',  (req, res) => {
   Users.find()
   .then(users => {
     if (users) {
@@ -32,7 +32,7 @@ router.get('/:id', (req, res) => {
       res.status(500).send(error));
 });
 
-router.get('/:id/projects', restricted, (req, res) => {
+router.get('/:id/projects', (req, res) => {
   Users.findProjectsByUserId(req.params.id)
     .then(userProjects => {
       if (userProjects) {
@@ -45,7 +45,7 @@ router.get('/:id/projects', restricted, (req, res) => {
       res.status(500).send(error))
 });
 
-router.put('/:id', restricted, (req, res) => {
+router.put('/:id', (req, res) => {
   let user = req.body;
   let id = req.params.id;
   Users.update(user, id)
@@ -60,7 +60,7 @@ router.put('/:id', restricted, (req, res) => {
       res.status(500).send(error))
 });
 
-router.delete('/:id', restricted, (req, res) => {
+router.delete('/:id', (req, res) => {
   Users.remove(req.params.id)
     .then(deleted => {
       if (deleted) {
