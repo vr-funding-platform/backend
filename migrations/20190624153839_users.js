@@ -28,11 +28,8 @@ exports.up = function(knex, Promise) {
       .notNullable();
 
     users
-      .integer('team_id')
-      .references("id")
-      .inTable("teams")
-      .onDelete("CASCADE")
-      .onUpdate("CASCADE");
+      .string('team_id')
+
 
     users
       .datetime('created_at');

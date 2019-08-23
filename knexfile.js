@@ -1,36 +1,54 @@
-// Update with your config settings.
+require('dotenv').config();
+const localPg = {
+	host: process.env.DB_HOST,
+	user: process.env.DB_USER,
+	password: process.env.DB_PASS,
+  database: process.env.DB_DATABASE
+};
+
+const pg = require('pg');
+
+const dbConnection = process.env.DATABASE_URL || localPg;
 
 module.exports = {
 
   development: {
-    client: 'sqlite3',
-    connection: {
-      filename: './vrfund.db3'
-    },
-    useNullAsDefault: true,
-  },  
-  pool: {
-    afterCreate: (conn, done) => {
-      conn.run('PRAGMA foreign_keys = ON', done);
-    }
-  },
-  migrations: {
-    directory: './migrations',
-  },
-  seeds: {
-    directory: './seeds'
-  },
+		client: 'pg',
+		connection: dbConnection,
+		migrations: {
+			directory: './migrations'
+		},
+		seeds: {
+			directory: './seeds'
+		}
+	},
 
-  production: {
-    client: 'pg',
-    connection: process.env.DATABASE_URL,
-    migrations: {
-      directory: './migrations',
-    },
-    seeds: {
-      directory: './seeds',
-    }
-  },
+	staging: {
+		client: 'postgresql',
+		connection: {
+			database: 'my_db',
+			user: 'username',
+			password: 'password'
+		},
+		pool: {
+			min: 2,
+			max: 10
+		},
+		migrations: {
+			tableName: 'knex_migrations'
+		}
+	},
+
+	production: {
+		client: 'pg',
+		connection: dbConnection,
+		migrations: {
+			directory: './migrations'
+		},
+		seeds: {
+			directory: './seeds'
+		}
+	},
 
   testing: {
     client: 'sqlite3',
