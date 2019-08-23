@@ -1,8 +1,7 @@
-# Virtual Reality Funding Platform
+#  API Documentation
 
 ## Table of Contents
-
-- [Dummy Data](#dummy-data)      
+ 
 - [Auth Routes](#auth-routes)
   * [Register](#register)    
   * [Login](#login)    
@@ -20,67 +19,7 @@
   * [Delete Project](#delete-project)
     
 
-## API Documentation
 
-### Dummy Data
-
-#### Test users with projects
-
-```
-Users: [
-  {
-    "id": 1,
-    "username": "admin",
-    "password": "password"
-    "name": "Leonel, Gabriel, and Mateo",
-    "about": "We are a team of drone hobbyists.",
-    "projects": [
-      {
-        "id": 1, 
-        "projectName": "Drone Fanatics",
-        "projectType": "Robotics",
-        "description": "We would like to expand our photography drone creation and repair hobby into a business.",
-        "fundingAmount": 5000.00,
-        "user_id": 1, 
-      }
-    ]
-  },
-  {
-    "id": 2, 
-    "username": "admin2",
-    "password": "password",
-    "name": "Jayla",
-    "about": "I created a small 3D printing business.",
-    "projects": [
-      {
-        "id": 2, 
-        "projectName": "Jayla's Trinkets",
-        "projectType": "3D Printing",
-        "description": "I currently run my business with one 3D printer. I would like to expand to four printers so I can increase my productivity and sales.",
-        "fundingAmount": 15000.00,
-        "user_id": 2,
-      },
-    ]
-  },
-  {
-    "id": 3, 
-    "username": "admin3",
-    "password": "password",
-    "name": "Aaliyah and Trinity",
-    "about": "We are working to create drought resistance crops.",
-    "projects": [
-      {
-        "id": 3, 
-        "projectName": "Genexis Lab",
-        "projectType": "Biotechnology",
-        "description": "We currently have a small lab where we are working on creating drought resistant crops. We are in need of some new equipment and supplies.",
-        "fundingAmount": 10000.00,
-        "user_id": 3,
-      },
-    ]
-  }
-]
-```
 
 # Auth Routes
 | Table | Method |       Endpoint |                      Description |
