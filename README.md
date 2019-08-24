@@ -1,5 +1,7 @@
 #  API Documentation
 
+https://vr-overlord-server.herokuapp.com/
+
 ## Table of Contents
  
 - [Auth Routes](#auth-routes)
@@ -27,11 +29,11 @@
 | users |  POST  | /auth/register |            Registers a new user. |
 | users |  POST  | /auth/login    | Logs in already registered user. |
 
-## Register
+## Register 📑
 
 ### Registers a new user.
 
-_Method URL:_ `/auth/register`
+_Method URL:_ `https://vr-overlord-server.herokuapp.com//auth/register`
 
 _HTTP Method:_ **[POST]**
 
@@ -50,7 +52,8 @@ _HTTP Method:_ **[POST]**
   "username": "vrproject",
   "password": "ilovemoney",
   "name": "John",
-  "about": "Tech developer"
+  "about": "Tech developer",
+  "roles":"Creator"
 }
 
 ```
@@ -69,11 +72,11 @@ _HTTP Method:_ **[POST]**
 
 > If there is a server or database error, the endpoint will return an HTTP response with a status code of `500`.
 
-## Login
+## Login 📃
 
 ### Logs in an already registered user.
 
-_Method URL:_ `/auth/login`
+_Method URL:_ `https://vr-overlord-server.herokuapp.com/auth/login`
 
 _HTTP Method:_ **[POST]**
 
@@ -100,6 +103,7 @@ _HTTP Method:_ **[POST]**
   "name": "John",
   "about": "Tech developer"
 }
+```
 
 ##### 200 (OK)
 
@@ -119,11 +123,11 @@ _HTTP Method:_ **[POST]**
 
 # User Routes
 
-## Get Users
+## Get Users 🔍
 
 ### Gets a list of users.
 
-_Method URL:_ `/users/`
+_Method URL:_ `https://vr-overlord-server.herokuapp.com/users/`
 
 _HTTP Method:_ **[GET]**
 
@@ -154,9 +158,9 @@ _HTTP Method:_ **[GET]**
 
 ## Get User
 
-### Gets user by ID.
+### Gets user by ID. 🔍
 
-_Method URL:_ `/users/:id`
+_Method URL:_ `https://vr-overlord-server.herokuapp.com/users/:id`
 
 _HTTP Method:_ **[GET]**
 
@@ -182,11 +186,11 @@ _HTTP Method:_ **[GET]**
 
 > If there is a server or database error, the endpoint will return an HTTP response with a status code of `500`.
 
-## Get Projects by User ID
+## Get Projects by User ID 🔍
 
 ### Gets all projects for specified user.
 
-_Method URL:_ `/users/:id/projects`
+_Method URL:_ `https://vr-overlord-server.herokuapp.com/users/:id/projects`
 
 _HTTP Method:_ **[GET]**
 
@@ -215,11 +219,11 @@ _HTTP Method:_ **[GET]**
 
 > If there is a server or database error, the endpoint will return an HTTP response with a status code of `500`.
 
-## Delete User
+## Delete User 🔥
 
 ### Deletes user by ID.
 
-_Method URL:_ `/users/:id`
+_Method URL:_ `https://vr-overlord-server.herokuapp.com/users/:id`
 
 _HTTP Method:_ **[DELETE]**
 
@@ -248,11 +252,11 @@ _HTTP Method:_ **[DELETE]**
 
 > If there is a server or database error, the endpoint will return an HTTP response with a status code of `500`.
 
-## Update User
+## Update User  💳
 
 ### Updates user by ID.
 
-_Method URL:_ `/users/:id`
+_Method URL:_ `https://vr-overlord-server.herokuapp.com/users/:id`
 
 _HTTP Method:_ **[PUT]**
 
@@ -303,11 +307,11 @@ _HTTP Method:_ **[PUT]**
 
 # Project Routes
 
-## Create Project
+## Create Project 📤
 
 ### Creates a project, with a project type, description, funding amount, and user id.
 
-_Method URL:_ `/projects`
+_Method URL:_ `https://vr-overlord-server.herokuapp.com/projects`
 
 _HTTP Method:_ **[POST]**
 
@@ -358,11 +362,11 @@ _HTTP Method:_ **[POST]**
 
 > If there is a server or database error, the endpoint will return an HTTP response with a status code of `500`.
 
-## Get Projects
+## Get Projects 📥
 
 ### Gets a list of projects.
 
-_Method URL:_ `/projects`
+_Method URL:_ `https://vr-overlord-server.herokuapp.com/projects`
 
 _HTTP Method:_ **[GET]**
 
@@ -384,11 +388,11 @@ No headers needed. `/projects` is not a protected path.
 
 > If there is a server or database error, the endpoint will return an HTTP response with a status code of `500`.
 
-## Get Projects
+## Get Projects 📥
 
 ### Gets project by ID.
 
-_Method URL:_ `/projects/:id`
+_Method URL:_ `https://vr-overlord-server.herokuapp.com/projects/:id`
 
 _HTTP Method:_ **[GET]**
 
@@ -410,11 +414,11 @@ No headers needed. `/projects/:id` is not a protected path.
 
 > If there is a server or database error, the endpoint will return an HTTP response with a status code of `500`.
 
-## Update Project
+## Update Project ✒️
 
 ### Updates project by ID.
 
-_Method URL:_ `/projects/:id`
+_Method URL:_ `https://vr-overlord-server.herokuapp.com/projects/:id`
 
 _HTTP Method:_ **[PUT]**
 
@@ -465,11 +469,11 @@ _HTTP Method:_ **[PUT]**
 
 > If there is a server or database error, the endpoint will return an HTTP response with a status code of `500`.
 
-## Delete Project
+## Delete Project  🔪
 
 ### Deletes project by ID.
 
-_Method URL:_ `/projects/:id`
+_Method URL:_ `https://vr-overlord-server.herokuapp.com/projects/:id`
 
 _HTTP Method:_ **[DELETE]**
 
@@ -498,3 +502,6 @@ _HTTP Method:_ **[DELETE]**
 
 > If there is a server or database error, the endpoint will return an HTTP response with a status code of `500`.
 
+# Notes 🚸
+
+Restrictions on back end routes have been lifted to allow students to learn about client side authentication  
