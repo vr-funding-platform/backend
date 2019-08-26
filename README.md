@@ -502,6 +502,19 @@ _HTTP Method:_ **[DELETE]**
 
 > If there is a server or database error, the endpoint will return an HTTP response with a status code of `500`.
 
+## Get Teams
+
+_Method URL:_ `https://vr-overlord-server.herokuapp.com/teams`
+
+## Get Team by ID
+
+_Method URL:_ `https://vr-overlord-server.herokuapp.com/teams/:id`
+
+## Create Team
+
+_Method URL:_ `https://vr-overlord-server.herokuapp.com/teams`
+
+
 # Notes 🚸
 
 Restrictions on back end routes have been lifted to allow students to learn about client side authentication  

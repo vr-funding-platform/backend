@@ -6,8 +6,8 @@ const Projects = require('../models/projects.js');
 
 router.post('/',  (req, res) => {
   let project = req.body;
-  const { projectName, projectType, description, fundingAmount } = req.body;
-  if (!projectName || !projectType || !description || !fundingAmount) {
+  const { projectName, projectType, description, fundingGoal } = req.body;
+  if (!projectName || !projectType || !description || !fundingGoal) {
   res.status(400).json({ message: 'Please provide your project information.' });
   } 
   Projects.add(project)
