@@ -4,11 +4,11 @@ const router = express.Router();
 
 const model = require('../models/journals.js');
 
-router.post('/',  (req, res) => {
+router.post('/', (req, res) =>{
   let journal = req.body;
-  const { post} = req.body;
-  if (!post) {
-  res.status(400).json({ message: 'Please provide your journal information.' });
+  const { post, status} = req.body;
+  if (!post || !status) {
+  res.status(400).json({ message: 'Please provide your project information.' });
   } 
   model.add(journal)
     .then(journal => {
@@ -16,7 +16,7 @@ router.post('/',  (req, res) => {
     })
     .catch(error => 
       res.status(500).send(error));
-});
+})
 
 router.get('/', (req, res) => {
   model.find()

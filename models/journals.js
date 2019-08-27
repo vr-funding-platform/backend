@@ -18,9 +18,8 @@ function findBy(filter) {
 };
 
 async function add(journal) {
-  const [id] = await db('journals').insert(journal);
-
-  return findById(id);
+  return db('journals')
+  .insert(journal, 'id');
 };
 
 function findById(id) {
