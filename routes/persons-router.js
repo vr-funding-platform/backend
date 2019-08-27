@@ -17,6 +17,20 @@ router.get('/',  (req, res) => {
     res.status(500).send(error));
 });
 
+router.post('/', (req, res) =>{
+  let person = req.body;
+  const { firstname, lastname} = req.body;
+  if (!firstname || !lastname ) {
+  res.status(400).json({ message: 'Please provide your project information.' });
+  } 
+  Users.add(person)
+    .then(person => {
+      res.status(201).json(person);
+    })
+    .catch(error => 
+      res.status(500).send(error));
+})
+
 router.get('/:id', (req, res) => {
   Users.findById(req.params.id)
     .then(user => {

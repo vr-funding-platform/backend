@@ -17,9 +17,9 @@ function findBy(filter) {
   return db('persons').where(filter);
 };
 
-function add(user) {
+function add(person) {
   return db('persons')
-    .insert(user, 'id');
+    .insert(person, 'id');
 };
 
 function findById(id) {
