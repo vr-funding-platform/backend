@@ -1,5 +1,7 @@
 #  API Documentation
 
+Due to probelms with other build teams APIs I have used this backend to deploy and route data for serveral other teams. The main routes displayed are for the SIXR team. At the end of the document routes for Phan's team can be found. Other routes have been purposfuly omitted from this documentaion becasue documentation exists for those routes in those teams GITHUB repos.
+
 https://vr-overlord-server.herokuapp.com/
 
 ## Table of Contents
@@ -171,25 +173,44 @@ _HTTP Method:_ **[POST]**
 
 Restrictions on back end routes have been lifted to allow students to learn about client side authentication  
 
-Due to probelms with other build teams apis I have used this backend to deploy data from serveral other teams
+Due to probelms with other build teams apis I have used this backend to deploy data from serveral other teams.
+
+Routes for data stored is as follows
 
 ## Phan's Routes
 ``#GET and #POST serviceWorkers
+
 /serviceWorkers
+
 #GET by id
+
 /serviceWorkers/:id
+
 #DELETE
+
 /serviceWorkers/:id
+
 #PATCH
+
 /serviceWorkers/:id
+
 #GET all transactions
+
 /banker/Alltickets
+
 #DELETE transactions
+
 /banker/Alltickets/:id
+
 #POST transactions
+
 /banker/Alltickets
+
 #GET and #POST tips
+
 /banker/tips
+
 #tips by  id
+
 /banker/tips/:id``
 
