@@ -170,3 +170,26 @@ _HTTP Method:_ **[POST]**
 # Notes 🚸
 
 Restrictions on back end routes have been lifted to allow students to learn about client side authentication  
+
+Due to probelms with other build teams apis I have used this backend to deploy data from serveral other teams
+
+## Phan's Routes
+``#GET and #POST serviceWorkers
+/serviceWorkers
+#GET by id
+/serviceWorkers/:id
+#DELETE
+/serviceWorkers/:id
+#PATCH
+/serviceWorkers/:id
+#GET all transactions
+/banker/Alltickets
+#DELETE transactions
+/banker/Alltickets/:id
+#POST transactions
+/banker/Alltickets
+#GET and #POST tips
+/banker/tips
+#tips by  id
+/banker/tips/:id``
+
