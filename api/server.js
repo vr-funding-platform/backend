@@ -9,7 +9,8 @@ const Teams = require('../models/teams');
 const journalsRouter = require('../routes/journals-router.js');
 const personsRouter = require('../routes/persons-router.js');
 const Ref = require('../models/reflections');
-const serviceWorkersRouter = require('../routes/serviceWorkers-route')
+const serviceWorkersRouter = require('../routes/serviceWorkers-route');
+const transactionsRouter = require('../routes/money-router.js');
 
 const server = express();
 
@@ -25,8 +26,8 @@ server.use('/projects', projectsRouter);
 server.use('/journals', journalsRouter);
 server.use('/persons', personsRouter);
 // Phan's routes
-server.use('/serviceWorkers', personsRouter);
-
+server.use('/serviceWorkers', serviceWorkersRouter);
+server.use('/banker', transactionsRouter);
 
 // if this message changes the server has been changed
 let now = new Date().getTime();
