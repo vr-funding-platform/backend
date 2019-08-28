@@ -2,6 +2,8 @@
 
 Due to probelms with other build teams APIs I have used this backend to deploy and route data for serveral other teams. The main routes displayed are for the SIXR team. At the end of the document routes for Phan's team can be found. Other routes have been purposfuly omitted from this documentaion becasue documentation exists for those routes in those teams GITHUB repos.
 
+server deployed at
+
 https://vr-overlord-server.herokuapp.com/
 
 ## Table of Contents
