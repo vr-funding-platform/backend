@@ -6,7 +6,9 @@ exports.up = function(knex, Promise) {
 
         journals.datetime('date');
  
-        journals.boolean('status');
+        journals.string('status');
+
+        journals.string('title');
 
         journals.integer('personId')
         .unsigned()
