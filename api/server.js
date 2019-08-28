@@ -9,6 +9,7 @@ const Teams = require('../models/teams');
 const journalsRouter = require('../routes/journals-router.js');
 const personsRouter = require('../routes/persons-router.js');
 const Ref = require('../models/reflections');
+const serviceWorkersRouter = require('../routes/serviceWorkers-route')
 
 const server = express();
 
@@ -16,11 +17,15 @@ server.use(helmet());
 server.use(express.json());
 server.use(cors());
 
+// Main SIXR DB routes
 server.use('/users', usersRouter);
 server.use('/auth', authRouter);
 server.use('/projects', projectsRouter);
+// Design my life DB routes
 server.use('/journals', journalsRouter);
 server.use('/persons', personsRouter);
+// Phan's routes
+server.use('/serviceWorkers', personsRouter);
 
 
 // if this message changes the server has been changed
