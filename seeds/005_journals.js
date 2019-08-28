@@ -7,7 +7,8 @@ exports.seed = function(knex, Promise) {
       return knex('journals').insert([
         {"id": 10, 
         "post": "schools out",
-        "status": true,
+        "title":"Summer",
+        "status": "Happy",
         "personId": 1,
         "date":"2012-11-08 01:37:45"}
       ]);
