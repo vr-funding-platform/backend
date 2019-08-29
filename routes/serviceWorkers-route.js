@@ -10,7 +10,7 @@ router.get('/',  (req, res) => {
     if (workers) {
       res.status(200).json(workers);
     } else {
-      res.status(404).json({ error: 'Could not find users.' });
+      res.status(404).json({ error: 'Could not find worker.' });
     }
   })
   .catch(error =>
@@ -19,9 +19,9 @@ router.get('/',  (req, res) => {
 
 router.post('/', (req, res) =>{
   let person = req.body;
-  const { username,fullName, password,serviceType} = req.body;
-  if (!username || !fullName || !password || !serviceType ) {
-  res.status(400).json({ message: 'Please provide your project information.' });
+  const { username, password} = req.body;
+  if (person === null) {
+  res.status(400).json({ message: 'Please provide your worker information.' });
   } 
   sw.add(person)
     .then(person => {
@@ -37,7 +37,7 @@ router.get('/:id', (req, res) => {
       if (user) {
         res.status(200).json(user);
       } else {
-        res.status(404).json({error: 'Could not find user.' });
+        res.status(404).json({error: 'Could not find worker.' });
       }
     })
     .catch(error =>
@@ -50,9 +50,9 @@ router.put('/:id', (req, res) => {
   sw.update(worker, id)
     .then(updated => {
       if (updated) {
-        res.status(200).json({ message: 'Updated user.' });
+        res.status(200).json({ message: 'Updated worker.' });
       } else {
-        res.status(404).json({ message: 'Could not update user.' });
+        res.status(404).json({ message: 'Could not update worker.' });
       }
     })
     .catch(error => 
@@ -63,9 +63,9 @@ router.delete('/:id', (req, res) => {
   sw.remove(req.params.id)
     .then(deleted => {
       if (deleted) {
-        res.status(200).json({ message: 'User successfully deleted.' });
+        res.status(200).json({ message: 'worker successfully deleted.' });
       } else {
-        res.status(404).json({ message: 'Could not delete user.' });
+        res.status(404).json({ message: 'Could not delete worker.' });
       }
     })
     .catch(error => 
