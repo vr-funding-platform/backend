@@ -2,32 +2,28 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 
-const usersRouter = require('../routes/users-router.js');
-const authRouter = require('../routes/auth/auth.js')
-const projectsRouter = require('../routes/projects-router.js');
-const Teams = require('../models/teams');
-const journalsRouter = require('../routes/journals-router.js');
-const personsRouter = require('../routes/persons-router.js');
-const Ref = require('../models/reflections');
-const serviceWorkersRouter = require('../routes/serviceWorkers-route');
-const transactionsRouter = require('../routes/money-router.js');
-
+// we are using an express server
 const server = express();
 
+// middleware
 server.use(helmet());
 server.use(express.json());
 server.use(cors());
 
 // Main SIXR DB routes
-server.use('/users', usersRouter);
-server.use('/auth', authRouter);
-server.use('/projects', projectsRouter);
+server.use('/users', require('./routes/users-router.js'));
+server.use('/auth', require('./routes/auth/auth.js'));
+server.use('/projects', require('./routes/projects-router.js'));
 // Design my life DB routes
-server.use('/journals', journalsRouter);
-server.use('/persons', personsRouter);
+server.use('/journals', require('./routes/journals-router.js'));
+server.use('/persons', require('./routes/persons-router.js'));
 // Phan's routes
-server.use('/serviceWorkers', serviceWorkersRouter);
-server.use('/banker', transactionsRouter);
+server.use('/serviceWorkers', require('./routes/serviceWorkers-route'));
+server.use('/banker', require('./routes/money-router.js'));
+//Teams DB Routes
+server.use('/teams', require('./routes/teams-router'))
+//Reflections DB Routes
+server.use('reflections', require('./routes/reflection-routes'))
 
 // if this message changes the server has been changed
 let now = new Date().getTime();
@@ -35,78 +31,13 @@ var randomMessage = ["ONLINE","Active","Ready","Server Up"];
 //this prints out on the console, feel free to add whatever messages you want
 var message = randomMessage[Math.floor(Math.random() * randomMessage.length)];
 
+// Server message
 server.get('/', (req,res) => {
   try {
   res.send(`${message} <${now}>`);
   } catch(error) {
     res.status(500).json(error.response);
   }
-});
-
-server.get('/teams', (req,res)=>{
-  Teams.find()
-  .then(teams =>{
-      if (teams) {
-          res.status(200).json(teams);
-        } else {
-          res.status(404).json({ error: 'no teams found.' });
-        }
-  })})
-
-server.get('/teams/:id', (req, res) => {
-  Teams.findById(req.params.id)
-    .then(team => {
-      res.status(200).json(team);
-    })
-    .catch(error => 
-      res.status(500).json({ error: 'this is not the team you are looking for.'}));
-});
-
-server.post('/teams',  (req, res) => {
-  let team = req.body;
-  const { name, description, members } = req.body;
-  if (!name ||!description || !members) {
-  res.status(400).json({ message: 'Please provide your project information.' });
-  } 
-  Teams.add(team)
-    .then(team => {
-      res.status(201).json(team);
-    })
-    .catch(error => 
-      res.status(500).send(error));
-});
-
-server.get('/reflections', (req,res)=>{
-  Ref.find()
-  .then(teams =>{
-      if (teams) {
-          res.status(200).json(teams);
-        } else {
-          res.status(404).json({ error: 'no reflection found.' });
-        }
-  })})
-
-server.get('/reflections/:id', (req, res) => {
-  Ref.findById(req.params.id)
-    .then(team => {
-      res.status(200).json(team);
-    })
-    .catch(error => 
-      res.status(500).json({ error: 'this is not the reflection you are looking for.'}));
-});
-
-server.post('/reflections',  (req, res) => {
-  let team = req.body;
-  const { note} = req.body;
-  if (!note ) {
-  res.status(400).json({ message: 'Please provide your reflection information.' });
-  } 
-  Ref.add(team)
-    .then(team => {
-      res.status(201).json(team);
-    })
-    .catch(error => 
-      res.status(500).send(error));
 });
 
 module.exports = server;

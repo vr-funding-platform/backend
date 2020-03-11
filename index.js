@@ -13,7 +13,7 @@ var randomMessage = [
   //this prints out on the console, feel free to add whatever messages you want
   var message = randomMessage[Math.floor(Math.random() * randomMessage.length)];
 
-  let now = new Date().getTime();
+  let now = new Date().toUTCString();
 
 const port = process.env.PORT || 4200;
 server.listen(port, () => console.log(`|--SIXR Database--\n| ${message} \n| Server running on http://localhost:${port} \n| Time is: ${now} \n| ----------------
